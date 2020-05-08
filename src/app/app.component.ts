@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RootState, selectUser } from './reducers';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'reactive-forms-ngrx';
+
+  constructor(private store: Store<RootState>) {
+
+   }
+   user$ = this.store.pipe(select(selectUser));
+
 }
